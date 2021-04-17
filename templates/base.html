@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta charset="utf-8"/>
+
+    <title>BestToppings</title>
+</head>
+
+<nav class="navbar navbar-expand bg-danger navbar-light">
+    <a class="navbar-brand" href="{% url 'posts_list' %}">
+        <img src="https://game-icons.net/icons/ffffff/000000/1x1/delapouite/pizza-slice.svg" width="40" height="40"
+             alt=""> BestToppings
+    </a>
+
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'account' %}">
+                <span class="material-icons md-30">perm_identity</span> Account
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'posts_new' %}">
+                <span class="material-icons md-30">add_circle_outline</span> Add a post
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">
+                <span class="material-icons md-30">exit_to_app</span> Log Out
+            </a>
+        </li>
+    </ul>
+    {% else %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}">
+                <span class="material-icons md-30">how_to_reg</span> Sign Up
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">
+                <span class="material-icons md-30">login</span> Login
+            </a>
+        </li>
+    </ul>
+    {% endif %}
+</nav>
+
+{% block content %}
+{% endblock content %}
+</html>

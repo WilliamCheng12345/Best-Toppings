@@ -1,0 +1,63 @@
+.material-icons.md-30 {
+    font-size: 30px;
+}
+
+body {
+    font-family: 'Pangolin', cursive;
+    font-size: 30px;
+    background: lightgray;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.post_list h2 a {
+    color: red;
+}
+
+.author_and_date {
+    font-size: 15px;
+    color: black
+}
+
+.post_list {
+    background: white; 
+    padding: 20px;
+    width: 50%;
+    border: 1px solid black;
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+}
+
+.post_detail {
+    background: white;
+    padding: 20px;
+    width: 50%;
+    border: 1px solid black;
+    font-size: 20px;
+    margin: auto;
+    word-wrap: break-word;
+}
+
+.comment_list {
+    border-top: 1px solid black;
+}
+
+.comment_detail {
+    margin-top: 30px;
+}
+
+.form_title {
+    color: blue;
+    font-weight: bold;
+}
+
+.form {
+    width: 50%;
+    margin: auto;
+}
+
+

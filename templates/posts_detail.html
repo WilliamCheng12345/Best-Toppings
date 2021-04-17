@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<div class="post_detail">
+    <div class="author_and_date">
+        <p>by {{ post.author }} | {{ post.date }}</p>
+    </div>
+
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.meat }}, {{ post.non_meat }}</p>
+    <p>{{ post.body }}</p>
+
+    <a href="{% url 'comments_new' post.pk %}">
+        <span class="material-icons">comment</span> Comment
+    </a>
+
+    <div class="comment_list">
+        {% for comment in post.comments.all %}
+        <div class="comment_detail">
+            <div class="author_and_date">
+                <p>by {{ comment.author }} | {{ comment.date }}</p>
+            </div>
+
+            <p>{{ comment }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Your Posts</h1>
+{% for post in posts %}
+<div class="post_list">
+    <div class="author_and_date">
+        <p> by {{ post.author }} | {{ post.date }}</p>
+    </div>
+
+    <h2><a href="{% url 'posts_detail'  post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.meat }}, {{ post.non_meat }} </p>
+    <p> {{ post.body }} </p>
+
+    <a href="{% url 'posts_edit'  post.pk %}">Edit</a> |
+    <a href="{% url 'posts_delete'  post.pk %}">Delete</a>
+</div>
+{% endfor %}
+
+<h1>Your Comments</h1>
+{% for comment in comments %}
+<div class="post_list">
+    <div class="author_and_date">
+        <p>by {{ comment.author }} | {{ comment.date }}</p>
+    </div>
+
+    <p>{{ comment }}</p>
+
+    <a href="{% url 'comments_edit'  postpk=comment.post.pk pk=comment.pk %}">Edit</a> |
+    <a href="{% url 'comments_delete' postpk=comment.post.pk pk=comment.pk %}">Delete</a>
+</div>
+{% endfor %}
+{% endblock content %}
